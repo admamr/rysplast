@@ -1,0 +1,92 @@
+/* ===== Brand variables (mirror Tailwind) ===== */
+:root {
+  --primary: #ff7a00; /* ORANGE — CTA */
+  --secondary: #1d8c6a; /* EMERALD — hover */
+  --highlight: #1d8c6a;
+  --bg: #0b1020;
+  --surface: #0f1625;
+  --ink: #e7ecf7;
+  --border: #22304b;
+  --white-10: rgba(255, 255, 255, 0.1);
+  --white-20: rgba(255, 255, 255, 0.2);
+  --white-30: rgba(255, 255, 255, 0.3);
+  --black-80: rgba(0, 0, 0, 0.8);
+}
+
+/* Buttons backup (in case non-TW elements exist) */
+.btn--primary {
+  background: var(--primary);
+  color: #fff;
+}
+.btn--primary:hover {
+  background: var(--secondary);
+}
+.btn--ghost {
+  background: var(--white-10);
+  color: #fff;
+  border: 1px solid var(--white-30);
+}
+.btn--ghost:hover {
+  background: var(--secondary);
+  border-color: var(--secondary);
+}
+.btn--outline {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+}
+.btn--outline:hover {
+  background: var(--secondary);
+  color: #fff;
+  border-color: var(--secondary);
+}
+
+/* Uniform control heights (optional) */
+.input {
+  height: 42px;
+}
+.btn {
+  height: 42px;
+}
+
+/* ===== Client Logos Marquee ===== */
+.logo-marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-block: 0.5rem;
+}
+.logo-track {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 3rem !important;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+.logo-track img {
+  flex: 0 0 auto !important;
+  height: 55px;
+  width: auto;
+  opacity: 0.85;
+  filter: grayscale(1);
+  transition: opacity 0.2s ease, filter 0.2s ease, transform 0.2s ease;
+}
+.logo-track img:hover {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: translateY(-2px);
+}
+@media (max-width: 640px) {
+  .logo-track {
+    gap: 2rem !important;
+  }
+  .logo-track img {
+    height: 40px;
+  }
+}
+
+#hero {
+  height: 100vh;
+}

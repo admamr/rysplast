@@ -1,571 +1,596 @@
 <!DOCTYPE html>
-<html class="dark" dir="rtl" lang="he">
+<html lang="he" dir="rtl">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>R.Y.S Plast Ltd.</title>
-    <link rel="icon" href="./assets/Icon.png" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>R.Y.S Plastic Factory — הזרקת פלסטיק תעשייתית</title>
 
-    <!-- Fonts + Tailwind -->
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts - Rubik -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
-    <!-- Tailwind theme (ensure CTAs=orange, hover=emerald) -->
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#1E3A78", // deep navy
-              accent: "#FF7A00", // ORANGE — CTA
-              secondary: "#1D8C6A", // EMERALD — hover
-              highlight: "#3DA5E0",
-              surface: "#0F1625",
-              bg: "#0B1020",
-              ink: "#E7ECF7",
-              border: "#22304B",
-            },
-            fontFamily: {
-              display: ["Heebo", "system-ui", "Arial", "sans-serif"],
-            },
-            boxShadow: { card: "0 10px 30px rgba(0,0,0,.25)" },
-            borderRadius: { xl: "1.25rem" },
-          },
-        },
-      };
-    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Tailwind utilities that must win precedence -->
-    <style type="text/tailwindcss">
+    <style>
+      * {
+        font-family: "Rubik", sans-serif;
+      }
       body {
-        @apply bg-bg text-ink font-display selection:bg-accent/30;
+        background-color: #f7f9fc;
       }
-      .header--solid {
-        @apply bg-primary/90 border-b border-white/10 backdrop-blur;
+      :root {
+        --primary-blue: #004080;
+        --green: #009e5a;
+        --yellow: #f4b000;
+        --red: #e0433e;
+        --light-blue: #00aeef;
+        --dark-navy: #0c2243;
+        --light-bg: #f7f9fc;
+        --text-gray: #6b7280;
       }
-
-      /* Nav */
-      .navlink {
-        @apply text-sm font-medium text-ink/80 hover:text-secondary transition-colors;
+      .mobile-menu {
+        display: none;
       }
-
-      /* Buttons */
-      .btn {
-        @apply inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-bold transition-colors;
-      }
-      .btn--primary {
-        @apply bg-accent text-white hover:bg-secondary;
-      }
-      .btn--ghost {
-        @apply border border-white/30 bg-white/10 text-white hover:bg-secondary hover:border-secondary;
-      }
-      .btn--outline {
-        @apply border border-accent text-accent hover:bg-secondary hover:border-secondary hover:text-white;
-      }
-
-      /* Inputs */
-      .input {
-        @apply w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white ring-1 ring-inset ring-white/10 placeholder:text-ink/50 focus:ring-2 focus:ring-accent;
-      }
-
-      /* Cards / accents */
-      .card {
-        @apply rounded-xl bg-surface ring-1 ring-border shadow-card;
-      }
-      .hero-overlay {
-        background: linear-gradient(
-          180deg,
-          rgba(7, 10, 20, 0.55),
-          rgba(7, 10, 20, 0.65)
-        );
-      }
-      .hero-badge {
-        @apply rounded-lg bg-accent text-white px-3 py-2 text-center;
-      }
-      .stat-num {
-        @apply text-6xl font-extrabold text-accent;
-      }
-      .footlist a {
-        @apply hover:text-secondary;
+      .mobile-menu.active {
+        display: block;
       }
     </style>
-
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="antialiased">
-    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-      <!-- HEADER -->
-      <header
-        id="siteHeader"
-        class="header sticky top-0 z-50 bg-transparent transition-colors duration-300 supports-[backdrop-filter]:bg-bg/60 backdrop-blur-sm border-b border-transparent relative"
-      >
-        <div
-          class="mx-auto max-w-7xl px-4 lg:px-8 h-16 flex items-center w-full"
-        >
-          <!-- Brand (right side in RTL) -->
-          <a
-            href="#home"
-            class="flex w-20 h-20 items-center gap-3"
-            aria-label="עמוד הבית"
-          >
-            <img
-              src="./assets/Full Logo 3.png"
-              alt="Logo"
-              class="max-h-12 w-auto"
-            />
-          </a>
+  <body>
+    <!-- Header (reused) -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center gap-2">
+            <div
+              class="w-10 h-10 from-[#004080] to-[#00AEEF] rounded-lg flex items-center justify-center"
+            >
+              <img src="./assets/Icon.png" alt="Logo icon" />
+            </div>
+          </div>
 
-          <!-- Desktop nav -->
-          <nav class="ms-auto hidden md:flex items-center gap-8">
-            <a href="#about" class="navlink">אודות</a>
-            <a href="#solutions" class="navlink">פתרונות</a>
-            <a href="#industries" class="navlink">תעשיות</a>
-            <a href="#projects" class="navlink">פרויקטים</a>
-            <a href="#contact" class="navlink">יצירת קשר</a>
-            <a href="#rfq" class="btn btn--primary">קבלת הצעת מחיר</a>
-          </nav>
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center gap-8">
+            <a href="./index.html" class="text-[#004080] font-medium">בית</a>
+            <a
+              href="/products"
+              class="text-[#6B7280] hover:text-[#004080] transition-colors"
+              >מוצרים</a
+            >
+            <a
+              href="/about"
+              class="text-[#6B7280] hover:text-[#004080] transition-colors"
+              >אודות</a
+            >
 
-          <!-- Mobile toggle (pushed to the left via ms-auto in RTL) -->
-          <button
-            id="menuToggle"
-            class="ms-auto md:hidden btn btn--ghost"
-            aria-expanded="false"
-            aria-controls="mobileMenu"
-            aria-label="פתיחת תפריט"
-          >
-            תפריט
+            <a
+              href="./contact.html"
+              class="bg-[#F4B000] text-[#0C2243] px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity"
+              >קבלו הצעת מחיר</a
+            >
+          </div>
+
+          <!-- Mobile menu button -->
+          <button id="mobile-menu-btn" class="md:hidden p-2">
+            <i data-lucide="menu" class="w-6 h-6 text-[#0C2243]"></i>
           </button>
         </div>
 
-        <!-- Mobile menu (overlay below header) -->
-        <nav
-          id="mobileMenu"
-          class="hidden md:hidden border-t border-white/10 bg-[#14181F] text-right absolute inset-x-0 top-full z-50"
-        >
-          <div class="mx-auto max-w-7xl px-4 py-4 grid gap-4">
-            <a href="#about" class="navlink">אודות</a>
-            <a href="#solutions" class="navlink">פתרונות</a>
-            <a href="#industries" class="navlink">תעשיות</a>
-            <a href="#projects" class="navlink">פרויקטים</a>
-            <a href="#contact" class="navlink">יצירת קשר</a>
-            <a href="#rfq" class="btn btn--primary w-full">קבלת הצעת מחיר</a>
-          </div>
-        </nav>
-      </header>
-
-      <main class="flex-grow">
-        <!-- HERO (video background) -->
-        <section
-          id="hero"
-          class="relative min-h-[620px] isolate overflow-hidden"
-        >
-          <video
-            class="absolute inset-0 w-full h-full object-cover"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="auto"
-            poster="./assets/hero-poster.jpg"
-          >
-            <source src="./assets/Factory.mp4" type="video/mp4" />
-            הדפדפן שלך אינו תומך בוידאו.
-          </video>
-          <div class="absolute inset-0 hero-overlay"></div>
-
-          <!-- Badge -->
-          <div class="absolute start-4 top-4 hero-badge">
-            <p class="text-xl font-extrabold leading-none">19</p>
-            <p class="text-[11px] font-semibold opacity-90">שנות מומחיות</p>
-          </div>
-
-          <!-- Content -->
-          <div
-            class="absolute inset-0 mx-auto max-w-7xl px-4 lg:px-8 flex items-center justify-start text-right"
-          >
-            <div class="max-w-2xl space-y-6">
-              <h1
-                class="text-4xl md:text-5xl font-black leading-tight text-white"
-              >
-                טכנולוגיות פלסטיק מקיפות לייצור תעשייתי
-              </h1>
-              <p class="text-gray-200/90">
-                R.Y.S Plast בע״מ — פיתוח, ייצור והתאמה אישית של פתרונות פלסטיק
-                לפרויקטים מורכבים.
-              </p>
-              <div class="flex flex-wrap gap-3 justify-start">
-                <a href="#rfq" class="btn btn--primary">קבלת הצעת מחיר</a>
-                <a href="#about" class="btn btn--ghost"
-                  >הורדת פרופיל חברה (PDF)</a
-                >
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- CLIENT LOGOS — INFINITE LOOP -->
-        <section id="clients" class="py-16 bg-surface/70">
-          <div class="mx-auto max-w-7xl px-4 lg:px-8">
-            <h2
-              class="text-3xl md:text-4xl font-bold text-white text-center mb-6"
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu md:hidden pb-4">
+          <div class="flex flex-col gap-4">
+            <a href="./index.html" class="text-[#004080] font-medium">בית</a>
+            <a
+              href="/products"
+              class="text-[#6B7280] hover:text-[#004080] transition-colors"
+              >מוצרים</a
             >
-              הלקוחות שלנו
-            </h2>
-
-            <div id="logoMarquee" class="logo-marquee">
-              <div id="logoTrack" class="logo-track">
-                <!-- Add each logo ONCE (no spaces in paths) -->
-                <img src="./assets/Clients/1.png" alt="לקוח 1" />
-                <img src="./assets/Clients/2.png" alt="לקוח 2" />
-                <img src="./assets/Clients/3.png" alt="לקוח 3" />
-                <img src="./assets/Clients/4.png" alt="לקוח 4" />
-                <img src="./assets/Clients/5.png" alt="לקוח 5" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- MACHINES -->
-        <section id="machines" class="py-16 bg-surface/50">
-          <div class="mx-auto max-w-7xl px-4 lg:px-8">
-            <div class="text-center">
-              <h2 class="text-3xl md:text-4xl font-bold text-white">
-                מכונות המפעל
-              </h2>
-              <p class="mt-4 max-w-2xl mx-auto text-ink/80">
-                הצצה לטכנולוגיה המתקדמת שמניעה את הייצור שלנו — איכות, דיוק
-                ויציבות בקנה מידה תעשייתי.
-              </p>
-            </div>
-
-            <div
-              class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+            <a
+              href="/about"
+              class="text-[#6B7280] hover:text-[#004080] transition-colors"
+              >אודות</a
             >
-              <!-- Card 1 -->
-              <article
-                class="group relative overflow-hidden rounded-xl bg-surface ring-1 ring-border shadow-card"
-              >
-                <div class="aspect-[3/2] overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1633504095688-4a1e36d6b3a5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470"
-                    alt="מכונת הזרקה 500 טון"
-                    class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <div class="p-5">
-                  <h3 class="text-lg font-bold text-white">
-                    מכונת הזרקה 500 טון
-                  </h3>
-                  <p class="mt-2 text-sm text-ink/80">
-                    הזרקת פלסטיק בלחץ גבוה לייצור חלקים גדולים ומדויקים.
-                  </p>
-                </div>
-              </article>
 
-              <!-- Card 2 -->
-              <article
-                class="group relative overflow-hidden rounded-xl bg-surface ring-1 ring-border shadow-card"
-              >
-                <div class="aspect-[3/2] overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1598299803213-d894fb2ab97d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470"
-                    alt="זרוע רובוטית לאוטומציה"
-                    class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <div class="p-5">
-                  <h3 class="text-lg font-bold text-white">
-                    זרוע רובוטית לאוטומציה
-                  </h3>
-                  <p class="mt-2 text-sm text-ink/80">
-                    שינוע, הרכבה ובקרת איכות אוטומטית לשיפור תפוקה.
-                  </p>
-                </div>
-              </article>
-
-              <!-- Card 3 -->
-              <article
-                class="group relative overflow-hidden rounded-xl bg-surface ring-1 ring-border shadow-card"
-              >
-                <div class="aspect-[3/2] overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1633155570430-4352fe7b6835?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=774"
-                    alt="מערכת קירור תעשייתית"
-                    class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <div class="p-5">
-                  <h3 class="text-lg font-bold text-white">
-                    מערכת קירור תעשייתית
-                  </h3>
-                  <p class="mt-2 text-sm text-ink/80">
-                    שמירה על טמפרטורה אופטימלית של תבניות ומכונות ליציבות תהליך.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- PRODUCTS -->
-        <section id="products" class="py-16 bg-surface/70">
-          <div class="mx-auto max-w-7xl px-4 lg:px-8">
-            <div class="flex flex-col items-center text-center">
-              <h2 class="text-3xl md:text-4xl font-bold text-white">
-                מוצרים נבחרים
-              </h2>
-              <p class="mt-4 max-w-2xl text-ink/80">
-                ייצור פלסטיק בהתאמה אישית לפרויקטים מורכבים — מהתכנון ועד המוצר
-                המוגמר.
-              </p>
-            </div>
-
-            <div
-              class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+            <a
+              href="./contact.html"
+              class="bg-[#F4B000] text-[#0C2243] px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity w-full"
+              >קבלו הצעת מחיר</a
             >
-              <!-- Product card -->
-              <article class="card overflow-hidden">
-                <div class="aspect-[4/3] overflow-hidden">
-                  <img
-                    src="./assets/homa-appliances-ERXFD4jLpJc-unsplash.jpg"
-                    alt="מארז פלסטיק מותאם"
-                    class="h-full w-full object-cover"
-                  />
-                </div>
-                <div class="p-5">
-                  <h3 class="text-lg font-bold text-white">
-                    מארז פלסטיק מותאם
-                  </h3>
-                  <p class="mt-2 text-sm text-ink/80">
-                    עמידות גבוהה, גימור איכותי והנדסה מותאמת לדרישות הפרויקט.
-                  </p>
-                  <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                    <span class="rounded-full bg-white/10 px-3 py-1 text-ink/80"
-                      >Injection</span
-                    >
-                    <span class="rounded-full bg-white/10 px-3 py-1 text-ink/80"
-                      >ABS</span
-                    >
-                    <span class="rounded-full bg-white/10 px-3 py-1 text-ink/80"
-                      >OEM</span
-                    >
-                  </div>
-                  <div class="mt-5">
-                    <a href="#rfq" class="btn btn--primary">קבלת הצעת מחיר</a>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Product card -->
-              <article class="card overflow-hidden">
-                <div class="aspect-[4/3] overflow-hidden">
-                  <img
-                    src="./assets/Red Machinery Precision Factory Floor.png"
-                    alt="רכיב הנדסי מדויק"
-                    class="h-full w-full object-cover"
-                  />
-                </div>
-                <div class="p-5">
-                  <h3 class="text-lg font-bold text-white">רכיב הנדסי מדויק</h3>
-                  <p class="mt-2 text-sm text-ink/80">
-                    תכנון לייצור (DFM) ועמידה בתקנים מחמירים לתעשייה.
-                  </p>
-                  <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                    <span class="rounded-full bg-white/10 px-3 py-1 text-ink/80"
-                      >Nylon</span
-                    >
-                    <span class="rounded-full bg-white/10 px-3 py-1 text-ink/80"
-                      >Glass filled</span
-                    >
-                  </div>
-                  <div class="mt-5">
-                    <a href="#rfq" class="btn btn--primary">קבלת הצעת מחיר</a>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Product card -->
-              <article class="card overflow-hidden">
-                <div class="aspect-[4/3] overflow-hidden">
-                  <img
-                    src="./assets/Factory Exterior.jpg"
-                    alt="כיסוי מגן תעשייתי"
-                    class="h-full w-full object-cover"
-                  />
-                </div>
-                <div class="p-5">
-                  <h3 class="text-lg font-bold text-white">
-                    כיסוי מגן תעשייתי
-                  </h3>
-                  <p class="mt-2 text-sm text-ink/80">
-                    עמידות בפני פגיעות, התאמה לדרישות סביבה, ומחזוריות יציבה.
-                  </p>
-                  <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                    <span class="rounded-full bg-white/10 px-3 py-1 text-ink/80"
-                      >Polycarbonate</span
-                    >
-                    <span class="rounded-full bg-white/10 px-3 py-1 text-ink/80"
-                      >UV</span
-                    >
-                  </div>
-                  <div class="mt-5">
-                    <a href="#rfq" class="btn btn--primary">קבלת הצעת מחיר</a>
-                  </div>
-                </div>
-              </article>
-            </div>
           </div>
-        </section>
+        </div>
+      </nav>
+    </header>
 
-        <!-- NEWSLETTER -->
-        <section id="newsletter" class="py-16 bg-surface/70">
-          <div class="mx-auto max-w-4xl px-4 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white">
-              הירשמו לניוזלטר
-            </h2>
-            <p class="mt-3 text-ink/80">
-              קבלו עדכונים על חידושים, פרויקטים ותובנות מתעשיית הפלסטיק – ישירות
-              למייל.
-            </p>
-
-            <form
-              id="newsletterForm"
-              class="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center"
-            >
-              <label for="newsletterEmail" class="sr-only">כתובת אימייל</label>
-              <input
-                id="newsletterEmail"
-                name="email"
-                type="email"
-                required
-                autocomplete="email"
-                placeholder="הקלידו את כתובת האימייל שלכם"
-                class="input sm:min-w-[320px]"
-              />
-              <button type="submit" class="btn btn--primary">הרשמה</button>
-            </form>
-
-            <p id="newsletterSuccess" class="mt-3 text-secondary hidden">
-              תודה! נרשמתם בהצלחה.
-            </p>
-            <p id="newsletterError" class="mt-3 text-red-400 hidden">
-              אירעה שגיאה. נסו שוב.
-            </p>
-          </div>
-        </section>
-      </main>
-
-      <!-- FOOTER -->
-      <footer
-        class="border-t border-white/10 bg-surface/80 backdrop-blur py-12"
+    <!-- HERO  -->
+    <section class="relative text-white">
+      <!-- Video background -->
+      <video
+        class="absolute inset-0 w-full h-full object-cover"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="./assets/hero-poster.jpg"
       >
-        <div class="mx-auto max-w-7xl px-4 lg:px-8">
-          <div class="grid gap-10 lg:grid-cols-12">
-            <!-- Brand + blurb -->
-            <div class="lg:col-span-4">
-              <a href="#home" class="flex h-20 w-20items-center gap-3">
-                <img src="./assets/Full Logo 3.png" alt="" />
-              </a>
-              <p class="mt-4 max-w-sm text-ink/80">
-                פתרונות פלסטיק מתקדמים — תכנון, ייצור והתאמה אישית לדרישות
-                תעשייתיות מחמירות.
-              </p>
+        <source src="./assets/Factory.mp4" type="video/mp4" />
+        <source src="./assets/hero.webm" type="video/webm" />
+        <!-- Fallback text -->
+        הדפדפן שלך אינו תומך בקטעי וידאו.
+      </video>
 
-              <!-- Social -->
-              <div class="mt-6 flex items-center gap-4">
-                <a
-                  href="#"
-                  class="text-ink/70 hover:text-secondary"
-                  aria-label="LinkedIn"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    class="h-5 w-5"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M19 3A2.9 2.9 0 0 1 22 6v12a2.9 2.9 0 0 1-3 3H5a2.9 2.9 0 0 1-3-3V6a2.9 2.9 0 0 1 3-3h14ZM8.34 9.75H6V18h2.34V9.75Zm.17-2.77a1.36 1.36 0 1 0-2.72 0a1.36 1.36 0 0 0 2.72 0ZM18 18v-4.39c0-2.36-1.26-3.46-2.94-3.46a2.54 2.54 0 0 0-2.29 1.26h-.03V9.75H10.4V18h2.34v-4.37c0-1.15.2-2.27 1.66-2.27s1.49 1.27 1.49 2.35V18H18Z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="#"
-                  class="text-ink/70 hover:text-secondary"
-                  aria-label="YouTube"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    class="h-5 w-5"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.5 12 4.5 12 4.5s-5.7 0-7.5.6A3 3 0 0 0 2.4 7.2C1.8 9 1.8 12 1.8 12s0 3 .6 4.8a3 3 0 0 0 2.1 2.1c1.8.6 7.5.6 7.5.6s5.7 0 7.5-.6a3 3 0 0 0 2.1-2.1c.6-1.8.6-4.8.6-4.8s0-3-.6-4.8Zm-11 7.8V9l5.2 3-5.2 3Z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
+      <!-- Gradient overlay for readability -->
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-[#0C2243]/90 to-[#004080]/80"
+      ></div>
 
-            <!-- Columns -->
-            <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8">
-              <div>
-                <p class="text-white font-bold">חברה</p>
-                <ul class="mt-4 space-y-2 footlist">
-                  <li><a href="#about" class="text-ink/70">אודות</a></li>
-                  <li><a href="#team" class="text-ink/70">צוות</a></li>
-                  <li><a href="#careers" class="text-ink/70">קריירה</a></li>
-                  <li><a href="#blog" class="text-ink/70">בלוג</a></li>
-                </ul>
-              </div>
-              <div>
-                <p class="text-white font-bold">פתרונות</p>
-                <ul class="mt-4 space-y-2 footlist">
-                  <li>
-                    <a href="#solutions" class="text-ink/70">Injection</a>
-                  </li>
-                  <li><a href="#solutions" class="text-ink/70">OEM</a></li>
-                  <li><a href="#solutions" class="text-ink/70">Custom</a></li>
-                  <li><a href="#industries" class="text-ink/70">תעשיות</a></li>
-                </ul>
-              </div>
-              <div>
-                <p class="text-white font-bold">תמיכה</p>
-                <ul class="mt-4 space-y-2 footlist">
-                  <li><a href="#contact" class="text-ink/70">צור קשר</a></li>
-                  <li><a href="#faq" class="text-ink/70">שאלות נפוצות</a></li>
-                  <li><a href="#docs" class="text-ink/70">תיעוד</a></li>
-                  <li><a href="#rfq" class="text-ink/70">בקשת הצעת מחיר</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bottom bar -->
-          <div
-            class="mt-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4"
-          >
-            <p class="text-sm text-ink/70">
-              © <span id="year">2025</span> R.Y.S Plast Ltd. כל הזכויות שמורות.
+      <!-- Content -->
+      <div class="relative">
+        <div
+          class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 min-h-[60vh] grid items-center"
+        >
+          <div class="max-w-2xl ml-auto text-right">
+            <span
+              class="inline-block mb-4 px-3 py-1 bg-[#00AEEF]/30 border border-[#00AEEF]/50 rounded-full text-sm"
+            >
+              טכנולוגיה מתקדמת
+            </span>
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+              ייצור והזרקת פלסטיק<br class="hidden md:block" />לתעשייה המודרנית
+            </h1>
+            <p class="text-lg mt-4 opacity-90">
+              12 מכונות עם אוטומציה מתקדמת, בקרת איכות קפדנית ועמידה בתקנים —
+              לכל גודל סדרה.
             </p>
-            <div class="footlist flex items-center gap-6">
-              <a href="#privacy" class="text-ink/70">מדיניות פרטיות</a>
-              <a href="#terms" class="text-ink/70">תנאי שימוש</a>
+            <div class="flex flex-wrap gap-3 mt-6">
+              <a
+                href="#contact"
+                class="bg-[#F4B000] text-[#0C2243] px-6 py-3 rounded-lg font-bold hover:opacity-90 transition"
+                >קבלו הצעת מחיר</a
+              >
+              <a
+                href="#about"
+                class="px-6 py-3 rounded-lg border-2 border-white text-white hover:bg-white/10 transition"
+                >למדו עוד</a
+              >
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </section>
 
-    <!-- Scripts -->
-    <script src="./main.js" defer></script>
+    <!-- 3 HIGHLIGHTS -->
+    <section
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 lg:-mt-14 relative z-10"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+          <div class="flex items-center gap-3 mb-3">
+            <span
+              class="w-10 h-10 rounded-lg bg-[#F4B000]/15 text-[#F4B000] grid place-items-center"
+            >
+              <i data-lucide="leaf" class="w-5 h-5"></i>
+            </span>
+            <h3 class="font-bold text-[#0C2243]">קיימות בתהליך</h3>
+          </div>
+          <p class="text-[#6B7280]">
+            ייעול חומרי גלם, מיחזור וצריכת אנרגיה מופחתת לאורך הייצור.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+          <div class="flex items-center gap-3 mb-3">
+            <span
+              class="w-10 h-10 rounded-lg bg-[#F4B000]/15 text-[#F4B000] grid place-items-center"
+            >
+              <i data-lucide="cpu" class="w-5 h-5"></i>
+            </span>
+            <h3 class="font-bold text-[#0C2243]">אוטומציה ובקרה</h3>
+          </div>
+          <p class="text-[#6B7280]">
+            רובוטיקה, חיישנים ומערכות ויז'ן לאחידות ודיוק בכל מחזור ייצור.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+          <div class="flex items-center gap-3 mb-3">
+            <span
+              class="w-10 h-10 rounded-lg bg-[#F4B000]/15 text-[#F4B000] grid place-items-center"
+            >
+              <i data-lucide="hammer" class="w-5 h-5"></i>
+            </span>
+            <h3 class="font-bold text-[#0C2243]">הנדסה מבנית</h3>
+          </div>
+          <p class="text-[#6B7280]">
+            פיתוח פתרונות פלסטיים בשיתוף חברה גרמנית — מהתכנון עד הייצור.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="order-2 lg:order-1 flex justify-center">
+            <div class="rounded-xl overflow-hidden shadow-sm max-w-md w-full">
+              <img
+                src="./assets/Hero img.avif"
+                alt="מפעל R.Y.S"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+          <div class="order-1 lg:order-2 text-right">
+            <span
+              class="inline-block mb-3 px-3 py-1 bg-[#00AEEF]/15 text-[#0C2243] border border-[#00AEEF]/40 rounded-full text-sm"
+            >
+              אודותינו
+            </span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[#0C2243]">
+              פתרונות מדויקים לאתגרים מורכבים
+            </h2>
+            <p class="text-[#6B7280] mt-4">
+              ר.י.ס פלסט בע"מ נוסדה ב־2019 ומבוססת על ניסיון הנהלה של מעל 30 שנה
+              בתחום הזרקת הפלסטיק. אנו מייצרים בקבלנות משנה ומפעילים 12 מכונות
+              בגדלים שונים עם אוטומציה מתקדמת, ליווי הנדסי, ובקרת איכות קפדנית.
+            </p>
+            <ul class="grid sm:grid-cols-2 gap-3 mt-6">
+              <li class="flex items-center gap-2 text-[#0C2243]">
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-5 h-5 text-[#009E5A]"
+                ></i>
+                30+ שנות ניסיון
+              </li>
+              <li class="flex items-center gap-2 text-[#0C2243]">
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-5 h-5 text-[#009E5A]"
+                ></i>
+                12 מכונות ואוטומציה
+              </li>
+              <li class="flex items-center gap-2 text-[#0C2243]">
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-5 h-5 text-[#009E5A]"
+                ></i>
+                תקני ISO 9001
+              </li>
+              <li class="flex items-center gap-2 text-[#0C2243]">
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-5 h-5 text-[#009E5A]"
+                ></i>
+                עמידה בלוחות זמנים
+              </li>
+            </ul>
+            <div class="mt-6 flex gap-3">
+              <a
+                href="/contact"
+                class="bg-[#F4B000] text-[#0C2243] px-6 py-3 rounded-lg font-bold hover:opacity-90 transition"
+                >דברו איתנו</a
+              >
+              <a
+                href="#industries"
+                class="px-6 py-3 rounded-lg border border-[#0C2243]/20 text-[#0C2243] hover:bg-[#0C2243]/5 transition"
+                >תחומי פעילות</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section id="industries" class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-4 mb-8">
+          <div>
+            <h2 class="text-3xl font-extrabold text-[#0C2243]">
+              פתרונות ותעשיות
+            </h2>
+            <p class="text-[#6B7280] mt-2">
+              מוצרים לתחומי הרפואה, רכב, אלקטרוניקה, חקלאות וצרכנות.
+            </p>
+          </div>
+          <a
+            href="/products"
+            class="hidden md:inline-flex items-center gap-2 text-[#004080] font-medium hover:underline"
+          >
+            צפו בכל המוצרים <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Card -->
+          <article
+            class="bg-white rounded-lg border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition"
+          >
+            <div
+              class="aspect-square bg-cover bg-center"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800&auto=format&fit=crop');
+              "
+            ></div>
+            <div class="p-4 text-right">
+              <h3 class="font-bold text-[#0C2243]">פלסטיקה רפואית</h3>
+              <p class="text-sm text-[#6B7280] mt-1">
+                רכיבים סטריליים ומדויקים.
+              </p>
+            </div>
+          </article>
+
+          <article
+            class="bg-white rounded-lg border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition"
+          >
+            <div
+              class="aspect-square bg-cover bg-center"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1542281286-9e0a16bb7366?q=80&w=800&auto=format&fit=crop');
+              "
+            ></div>
+            <div class="p-4 text-right">
+              <h3 class="font-bold text-[#0C2243]">חלקי רכב</h3>
+              <p class="text-sm text-[#6B7280] mt-1">חלקים עמידים וקלי משקל.</p>
+            </div>
+          </article>
+
+          <article
+            class="bg-white rounded-lg border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition"
+          >
+            <div
+              class="aspect-square bg-cover bg-center"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=800&auto=format&fit=crop');
+              "
+            ></div>
+            <div class="p-4 text-right">
+              <h3 class="font-bold text-[#0C2243]">רכיבים אלקטרוניים</h3>
+              <p class="text-sm text-[#6B7280] mt-1">מארזים ורכיבים מדויקים.</p>
+            </div>
+          </article>
+
+          <article
+            class="bg-white rounded-lg border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition"
+          >
+            <div
+              class="aspect-square bg-cover bg-center"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=800&auto=format&fit=crop');
+              "
+            ></div>
+            <div class="p-4 text-right">
+              <h3 class="font-bold text-[#0C2243]">חקלאות וצרכנות</h3>
+              <p class="text-sm text-[#6B7280] mt-1">
+                פתרונות יומיומיים עמידים.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY / MACHINES -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-extrabold text-[#0C2243] text-right mb-6">
+          הטכנולוגיה שלנו
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <article
+            class="bg-white rounded-lg border border-gray-100 p-5 shadow-sm hover:shadow-md transition"
+          >
+            <div
+              class="aspect-video rounded-md bg-cover bg-center"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1534759846116-57968e53de7c?q=80&w=1200&auto=format&fit=crop');
+              "
+            ></div>
+            <h3 class="mt-3 font-semibold text-[#0C2243]">הזרקה מדויקת</h3>
+            <p class="text-sm text-[#6B7280]">ייצור סדרתי ברמת דיוק גבוהה.</p>
+          </article>
+
+          <article
+            class="bg-white rounded-lg border border-gray-100 p-5 shadow-sm hover:shadow-md transition"
+          >
+            <div
+              class="aspect-video rounded-md bg-cover bg-center"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1581093458791-9d09a8f80361?q=80&w=1200&auto=format&fit=crop');
+              "
+            ></div>
+            <h3 class="mt-3 font-semibold text-[#0C2243]">
+              אוטומציה ורובוטיקה
+            </h3>
+            <p class="text-sm text-[#6B7280]">אחידות ומהירות לכל אורך הקו.</p>
+          </article>
+
+          <article
+            class="bg-white rounded-lg border border-gray-100 p-5 shadow-sm hover:shadow-md transition"
+          >
+            <div
+              class="aspect-video rounded-md bg-cover bg-center"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=1200&auto=format&fit=crop');
+              "
+            ></div>
+            <h3 class="mt-3 font-semibold text-[#0C2243]">בקרת איכות</h3>
+            <p class="text-sm text-[#6B7280]">ויז'ן וסריקה לכל מוצר.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <section class="py-10 bg-[#0C2243] text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div class="bg-white/5 rounded-lg p-6">
+            <div class="text-3xl font-extrabold">30+</div>
+            <div class="text-white/80">שנות ניסיון</div>
+          </div>
+          <div class="bg-white/5 rounded-lg p-6">
+            <div class="text-3xl font-extrabold">12</div>
+            <div class="text-white/80">מכונות ייצור</div>
+          </div>
+          <div class="bg-white/5 rounded-lg p-6">
+            <div class="text-3xl font-extrabold">200+</div>
+            <div class="text-white/80">לקוחות מרוצים</div>
+          </div>
+          <div class="bg-white/5 rounded-lg p-6">
+            <div class="text-3xl font-extrabold">ISO</div>
+            <div class="text-white/80">תקני איכות</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTS -->
+    <section class="py-12 bg-[#F7F9FC]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-sm text-[#6B7280] mb-6">
+          יותר מ־200 חברות סומכות על R.Y.S
+        </p>
+        <div class="flex flex-wrap justify-center gap-10 opacity-70">
+          <img src="./assets/Clients/1.png" class="h-8" alt="Astrow" />
+          <img src="./assets/Clients/2.png" class="h-8" alt="Meridy" />
+          <img src="./assets/Clients/3.png" class="h-8" alt="Trusta" />
+          <img src="./assets/Clients/4.png" class="h-8" alt="Indust" />
+          <img src="./assets/Clients/5.png" class="h-8" alt="Vector" />
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section id="quote" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="rounded-xl border border-gray-200 bg-white p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-right"
+        >
+          <div>
+            <h3 class="text-2xl font-extrabold text-[#0C2243]">
+              מוכנים להתחיל פרויקט חדש?
+            </h3>
+            <p class="text-[#6B7280] mt-2">
+              צרו קשר היום וקבלו הצעת מחיר מותאמת אישית לצרכים שלכם.
+            </p>
+          </div>
+          <a
+            href="./contact.html"
+            class="bg-[#F4B000] text-[#0C2243] px-6 py-3 rounded-lg font-bold hover:opacity-90 transition"
+            >דברו איתנו</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer (reused from contact page) -->
+    <footer
+      class="bg-gradient-to-br from-[#0C2243] to-[#004080] text-white py-12"
+      id="contact"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8">
+          <!-- Company Info -->
+          <div class="md:col-span-1">
+            <div class="flex items-center gap-2 mb-4">
+              <div
+                class="w-20 h-10 rounded-lg flex items-center justify-center"
+              >
+                <img src="./assets/Full Logo 3.png" alt="Footer logo" />
+              </div>
+            </div>
+            <p class="text-white/80 text-sm">
+              מפעל מוביל לייצור פלסטיק באיכות גבוהה, משרת את התעשייה הישראלית
+              מזה למעלה מ-20 שנה
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="font-bold mb-4">קישורים מהירים</h3>
+            <ul class="space-y-2 text-white/80 text-sm">
+              <li>
+                <a
+                  href="./index.html"
+                  class="hover:text-white transition-colors"
+                  >בית</a
+                >
+              </li>
+              <li>
+                <a href="/about" class="hover:text-white transition-colors"
+                  >אודות</a
+                >
+              </li>
+              <li>
+                <a href="/products" class="hover:text-white transition-colors"
+                  >מוצרים</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./contact.html"
+                  class="hover:text-white transition-colors"
+                  >צור קשר</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h3 class="font-bold mb-4">שירותים</h3>
+            <ul class="space-y-2 text-white/80 text-sm">
+              <li>הזרקת פלסטיק</li>
+              <li>תכנון תבניות</li>
+              <li>ייצור מהיר</li>
+              <li>ייעוץ מקצועי</li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h3 class="font-bold mb-4">צור קשר</h3>
+            <ul class="space-y-2 text-white/80 text-sm">
+              <li class="flex items-center gap-2">
+                <i data-lucide="phone" class="w-4 h-4"></i> 04-9807566
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                rami@rys-plast.com
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>איזור תעשייה
+                ג'וליס, כביש אלבנזין
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-white/10 mt-8 pt-8 text-center text-white/60 text-sm"
+        >
+          <p>&copy; 2025 R.Y.S Plastic Factory. כל הזכויות שמורות.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS -->
+    <script>
+      lucide.createIcons();
+      const mobileBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileBtn?.addEventListener("click", () =>
+        mobileMenu.classList.toggle("active")
+      );
+    </script>
   </body>
 </html>

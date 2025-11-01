@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>מוצרים ושירותים — R.Y.S Plastic Factory</title>
+    <link href="./assets/ name.png" rel="icon" type="image/x-icon" />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Rubik font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      * {
+        font-family: "Rubik", sans-serif;
+      }
+      body {
+        background: #f7f9fc;
+      }
+      .mobile-menu {
+        display: none;
+      }
+      .mobile-menu.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== HEADER (reusable) ===== -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center gap-2">
+            <div
+              class="w-10 h-10 from-[#004080] to-[#00AEEF] rounded-lg flex items-center justify-center"
+            >
+              <a href="./index.html">
+                <img src="./assets/Icon.png" alt="Logo icon"
+              /></a>
+            </div>
+          </div>
+
+          <!-- Desktop Navigation (visible only on large screens) -->
+          <div class="hidden lg:flex items-center gap-8">
+            <a
+              href="./index.html"
+              class="text-[#6B7280] hover:text-[#004080] transition-colors"
+              >בית</a
+            >
+            <a href="./products.html" class="text-[#004080] font-medium"
+              >מוצרים</a
+            >
+            <a
+              href="./about.html"
+              class="text-[#6B7280] hover:text-[#004080] transition-colors"
+              >אודות</a
+            >
+            <a
+              href="./contact.html"
+              class="bg-[#F4B000] text-[#0C2243] px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity"
+              >קבלו הצעת מחיר</a
+            >
+          </div>
+
+          <!-- Mobile/Tablet menu button -->
+          <button id="mobile-menu-btn" class="lg:hidden p-2">
+            <i data-lucide="menu" class="w-6 h-6 text-[#0C2243]"></i>
+          </button>
+        </div>
+
+        <!-- Mobile/Tablet Navigation -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden pb-4">
+          <div class="flex flex-col gap-4 items-start">
+            <a href="./index.html" class="text-[#6B7280] hover:text-[#004080]"
+              >בית</a
+            >
+            <a href="./products.html" class="text-[#004080] font-medium"
+              >מוצרים</a
+            >
+            <a href="./about.html" class="text-[#6B7280] hover:text-[#004080]"
+              >אודות</a
+            >
+            <a
+              href="./contact.html"
+              class="bg-[#F4B000] text-[#0C2243] px-8 py-2 rounded-lg font-medium hover:opacity-90 transition text-center inline-block max-w-[250px] sm:max-w-[300px]"
+              >קבלו הצעת מחיר</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="bg-gradient-to-br from-[#0C2243] to-[#004080] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+          <div class="max-w-3xl">
+            <span
+              class="inline-block mb-4 px-3 py-1 bg-[#00AEEF]/30 border border-[#00AEEF]/50 rounded-full text-sm"
+              >מוצרים ושירותים</span
+            >
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+              פתרונות פלסטיק מקצועיים
+            </h1>
+            <p class="text-lg mt-3 text-white/90">
+              מגוון שירותים מקצה לקצה — מעיצוב תבניות ועד ייצור סדרתי באיכות
+              פרימיום.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MANUFACTURING CAPABILITIES -->
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[#0C2243] mb-3">
+              יכולות ייצור מתקדמות
+            </h2>
+            <p class="text-xl text-[#6B7280] max-w-2xl mx-auto">
+              טכנולוגיות ייצור מתקדמות ושירותים מקיפים לכל צורך.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <!-- Injection -->
+            <div
+              class="p-8 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition group"
+            >
+              <div
+                class="bg-gradient-to-br from-[#004080] to-[#0C2243] w-16 h-16 rounded-xl grid place-items-center mb-6 group-hover:scale-110 transition-transform"
+              >
+                <i data-lucide="settings" class="w-8 h-8 text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-[#0C2243] mb-3">
+                הזרקת פלסטיק
+              </h3>
+              <p class="text-[#6B7280] mb-4">
+                מכונות בטווח 80–650 טון לייצור מדויק של חלקים בכל גודל ומורכבות.
+              </p>
+              <ul class="space-y-2 text-sm text-[#6B7280]">
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#004080] rounded-full"></span
+                  >ייצור סדרתי ויחידני
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#004080] rounded-full"></span
+                  >דיוק עד 0.01 מ״מ
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#004080] rounded-full"></span
+                  >אוטומציה מלאה בקו
+                </li>
+              </ul>
+            </div>
+
+            <!-- Molds -->
+            <div
+              class="p-8 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition group"
+            >
+              <div
+                class="bg-gradient-to-br from-[#009E5A] to-[#009E5A]/80 w-16 h-16 rounded-xl grid place-items-center mb-6 group-hover:scale-110 transition-transform"
+              >
+                <i data-lucide="box" class="w-8 h-8 text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-[#0C2243] mb-3">
+                עיצוב תבניות
+              </h3>
+              <p class="text-[#6B7280] mb-4">
+                תכנון ובניית תבניות בהתאמה אישית עם CAD/CAM וסימולציות מתקדמות.
+              </p>
+              <ul class="space-y-2 text-sm text-[#6B7280]">
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#009E5A] rounded-full"></span
+                  >תכנון CAD/CAM
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#009E5A] rounded-full"></span
+                  >סימולציות וניתוח זרימה
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#009E5A] rounded-full"></span
+                  >תבניות רב־חלל מורכבות
+                </li>
+              </ul>
+            </div>
+
+            <!-- Fast production -->
+            <div
+              class="p-8 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition group"
+            >
+              <div
+                class="bg-gradient-to-br from-[#00AEEF] to-[#00AEEF]/80 w-16 h-16 rounded-xl grid place-items-center mb-6 group-hover:scale-110 transition-transform"
+              >
+                <i data-lucide="zap" class="w-8 h-8 text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-[#0C2243] mb-3">ייצור מהיר</h3>
+              <p class="text-[#6B7280] mb-4">
+                פרוטוטייפים ודוגמות לאישור לפני סדרה — זמני תגובה קצרים.
+              </p>
+              <ul class="space-y-2 text-sm text-[#6B7280]">
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#00AEEF] rounded-full"></span
+                  >פרוטוטייפ תוך 48 שעות
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#00AEEF] rounded-full"></span
+                  >סדרות קטנות־בינוניות
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-[#00AEEF] rounded-full"></span
+                  >הדפסת 3D ראשונית
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MATERIAL TYPES  -->
+      <section class="py-16 bg-[#F7F9FC]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[#0C2243] mb-3">
+              סוגי חומרים
+            </h2>
+            <p class="text-xl text-[#6B7280] max-w-2xl mx-auto">
+              עובדים עם מגוון רחב של חומרי גלם איכותיים.
+            </p>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card template repeated -->
+            <div
+              class="p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition"
+            >
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 rounded-lg grid place-items-center shrink-0"
+                  style="background-color: #00408015"
+                >
+                  <i
+                    data-lucide="layers"
+                    class="w-6 h-6"
+                    style="color: #004080"
+                  ></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-[#0C2243] mb-1">
+                    PP — פוליפרופילן
+                  </h4>
+                  <p class="text-sm text-[#6B7280]">קשיח, עמיד וקל משקל</p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition"
+            >
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 rounded-lg grid place-items-center shrink-0"
+                  style="background-color: #009e5a15"
+                >
+                  <i
+                    data-lucide="layers"
+                    class="w-6 h-6"
+                    style="color: #009e5a"
+                  ></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-[#0C2243] mb-1">PE — פוליאתילן</h4>
+                  <p class="text-sm text-[#6B7280]">גמיש ועמיד לכימיקלים</p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition"
+            >
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 rounded-lg grid place-items-center shrink-0"
+                  style="background-color: #00aeef15"
+                >
+                  <i
+                    data-lucide="layers"
+                    class="w-6 h-6"
+                    style="color: #00aeef"
+                  ></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-[#0C2243] mb-1">ABS</h4>
+                  <p class="text-sm text-[#6B7280]">חוזק גבוה ועמידות לחום</p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition"
+            >
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 rounded-lg grid place-items-center shrink-0"
+                  style="background-color: #00aeef15"
+                >
+                  <i
+                    data-lucide="layers"
+                    class="w-6 h-6"
+                    style="color: #00aeef"
+                  ></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-[#0C2243] mb-1">PC — פוליקרבונט</h4>
+                  <p class="text-sm text-[#6B7280]">שקוף וחזק במיוחד</p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition"
+            >
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 rounded-lg grid place-items-center shrink-0"
+                  style="background-color: #f4b00015"
+                >
+                  <i
+                    data-lucide="layers"
+                    class="w-6 h-6"
+                    style="color: #f4b000"
+                  ></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-[#0C2243] mb-1">PA — ניילון</h4>
+                  <p class="text-sm text-[#6B7280]">עמידות לחיכוך ושחיקה</p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition"
+            >
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 rounded-lg grid place-items-center shrink-0"
+                  style="background-color: #e0433e15"
+                >
+                  <i
+                    data-lucide="layers"
+                    class="w-6 h-6"
+                    style="color: #e0433e"
+                  ></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-[#0C2243] mb-1">POM — אצטל</h4>
+                  <p class="text-sm text-[#6B7280]">דיוק מידתי ויציבות</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MACHINES -->
+      <section id="machines" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[#0C2243] mb-3">
+              מכונות הייצור שלנו
+            </h2>
+            <p class="text-xl text-[#6B7280] max-w-2xl mx-auto">
+              צי מכונות מגוון מאפשר מענה מדויק מרכיבים זעירים ועד חלקים גדולים
+            </p>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <article
+              class="group relative rounded-2xl overflow-hidden shadow-sm border border-gray-100"
+            >
+              <div class="relative aspect-[4/3]">
+                <img
+                  src="./assets/machine1.jpg"
+                  alt="מכונת הזרקה 160 טון"
+                  class="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-[#0C2243]/80 via-[#0C2243]/30 to-transparent"
+                ></div>
+                <span
+                  class="absolute top-3 left-3 md:left-auto md:right-3 inline-flex items-center rounded-full bg-[#F4B000] text-[#0C2243] text-xs font-semibold px-3 py-1 shadow"
+                >
+                  160T
+                </span>
+                <div
+                  class="absolute bottom-0 right-0 left-0 p-5 text-white text-right"
+                >
+                  <h3 class="text-lg font-bold leading-tight">
+                    מכונת הזרקה 160 טון
+                  </h3>
+                  <p class="text-white/80 text-sm mt-1">
+                    חשמלית מלאה — דיוק גבוה לסדרות קטנות־בינוניות
+                  </p>
+                </div>
+              </div>
+              <div class="p-5 text-right">
+                <p class="text-[#6B7280]">
+                  מתאימה לחלקים טכניים קטנים, קירות דקים וסגירות הדוקות. מהירות
+                  תגובה גבוהה ובקרת טמפרטורה יציבה.
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-4 text-sm">
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#004080]/10 text-[#004080]"
+                  >
+                    מהירות הזרקה
+                  </li>
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#009E5A]/10 text-[#009E5A]"
+                  >
+                    חיסכון אנרגטי
+                  </li>
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#00AEEF]/10 text-[#00AEEF]"
+                  >
+                    דיוק ממדי
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Card 2 with background video -->
+            <article
+              class="group relative rounded-2xl overflow-hidden shadow-sm border border-gray-100"
+            >
+              <div class="relative aspect-[4/3]">
+                <video
+                  src="./assets/machine2.mp4"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  class="absolute inset-0 w-full h-full object-cover"
+                ></video>
+
+                <!-- Overlay -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-[#0C2243]/80 via-[#0C2243]/30 to-transparent"
+                ></div>
+
+                <!-- Label -->
+                <span
+                  class="absolute top-3 left-3 md:left-auto md:right-3 inline-flex items-center rounded-full bg-[#F4B000] text-[#0C2243] text-xs font-semibold px-3 py-1 shadow"
+                >
+                  220T
+                </span>
+
+                <!-- Title / Subtitle -->
+                <div
+                  class="absolute bottom-0 right-0 left-0 p-5 text-white text-right"
+                >
+                  <h3 class="text-lg font-bold leading-tight">
+                    מכונת הזרקה 220 טון
+                  </h3>
+                  <p class="text-white/80 text-sm mt-1">
+                    היברידית — איזון מיטבי בין מהירות וכוח הידוק
+                  </p>
+                </div>
+              </div>
+
+              <!-- Description -->
+              <div class="p-5 text-right">
+                <p class="text-[#6B7280]">
+                  פתרון ורסטילי לחלקי צריכה, מארזים וקופסאות מתקפלות. מתאים
+                  לתבניות רב־חלל.
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-4 text-sm">
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#004080]/10 text-[#004080]"
+                  >
+                    רב־חללי
+                  </li>
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#009E5A]/10 text-[#009E5A]"
+                  >
+                    זמן מחזור קצר
+                  </li>
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#00AEEF]/10 text-[#00AEEF]"
+                  >
+                    בקרת איכות
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article
+              class="group relative rounded-2xl overflow-hidden shadow-sm border border-gray-100"
+            >
+              <div class="relative aspect-[4/3]">
+                <video
+                  src="./assets/machine3.mp4"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  class="absolute inset-0 w-full h-full object-cover"
+                ></video>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-[#0C2243]/80 via-[#0C2243]/30 to-transparent"
+                ></div>
+                <span
+                  class="absolute top-3 left-3 md:left-auto md:right-3 inline-flex items-center rounded-full bg-[#F4B000] text-[#0C2243] text-xs font-semibold px-3 py-1 shadow"
+                  >280T</span
+                >
+                <div
+                  class="absolute bottom-0 right-0 left-0 p-5 text-white text-right"
+                >
+                  <h3 class="text-lg font-bold leading-tight">
+                    מכונת הזרקה 280 טון
+                  </h3>
+                  <p class="text-white/80 text-sm mt-1">
+                    סרו־הידראולית — יציבות לאורך מחזורי ייצור ארוכים
+                  </p>
+                </div>
+              </div>
+              <div class="p-5 text-right">
+                <p class="text-[#6B7280]">
+                  לחלקי רכב, אלקטרוניקה ומכלולים הדורשים חוזק ודיוק. תמיכה
+                  במוזנים אוטומטיים.
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-4 text-sm">
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#004080]/10 text-[#004080]"
+                  >
+                    אוטומציה
+                  </li>
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#009E5A]/10 text-[#009E5A]"
+                  >
+                    יציבות תהליך
+                  </li>
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#00AEEF]/10 text-[#00AEEF]"
+                  >
+                    חיסכון בחומר
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article
+              class="group relative rounded-2xl overflow-hidden shadow-sm border border-gray-100"
+            >
+              <div class="relative aspect-[4/3]">
+                <video
+                  src="./assets/machine4.mp4"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  class="absolute inset-0 w-full h-full object-cover"
+                ></video>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-[#0C2243]/80 via-[#0C2243]/30 to-transparent"
+                ></div>
+                <span
+                  class="absolute top-3 left-3 md:left-auto md:right-3 inline-flex items-center rounded-full bg-[#F4B000] text-[#0C2243] text-xs font-semibold px-3 py-1 shadow"
+                  >350T</span
+                >
+                <div
+                  class="absolute bottom-0 right-0 left-0 p-5 text-white text-right"
+                >
+                  <h3 class="text-lg font-bold leading-tight">
+                    מכונת הזרקה 350 טון
+                  </h3>
+                  <p class="text-white/80 text-sm mt-1">
+                    חלל פתוח גדול — תבניות מורכבות ורב־חללים
+                  </p>
+                </div>
+              </div>
+              <div class="p-5 text-right">
+                <p class="text-[#6B7280]">
+                  מותאמת לסטים גדולים, מארזים ומנגנונים עם תוספות מתכת/השחלה
+                  במקום.
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-4 text-sm">
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#004080]/10 text-[#004080]"
+                  >
+                    Insert Molding
+                  </li>
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#009E5A]/10 text-[#009E5A]"
+                  >
+                    רב־חללי
+                  </li>
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#00AEEF]/10 text-[#00AEEF]"
+                  >
+                    בקרת חום
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article
+              class="group relative rounded-2xl overflow-hidden shadow-sm border border-gray-100"
+            >
+              <div class="relative aspect-[4/3]">
+                <img
+                  src="./assets/machine5.jpg"
+                  alt="מכונת הזרקה 450 טון"
+                  class="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-[#0C2243]/80 via-[#0C2243]/30 to-transparent"
+                ></div>
+                <span
+                  class="absolute top-3 left-3 md:left-auto md:right-3 inline-flex items-center rounded-full bg-[#F4B000] text-[#0C2243] text-xs font-semibold px-3 py-1 shadow"
+                  >450T</span
+                >
+                <div
+                  class="absolute bottom-0 right-0 left-0 p-5 text-white text-right"
+                >
+                  <h3 class="text-lg font-bold leading-tight">
+                    מכונת הזרקה 450 טון
+                  </h3>
+                  <p class="text-white/80 text-sm mt-1">
+                    חלקים בינוניים־גדולים — חוזק גבוה ודיוק יציב
+                  </p>
+                </div>
+              </div>
+              <div class="p-5 text-right">
+                <p class="text-[#6B7280]">
+                  מתאים לקייסים, דפנות עבות ומוצרים שדורשים לחץ הידוק משמעותי.
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-4 text-sm">
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#004080]/10 text-[#004080]"
+                  >
+                    קירות עבים
+                  </li>
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#009E5A]/10 text-[#009E5A]"
+                  >
+                    דיוק חוזר
+                  </li>
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#00AEEF]/10 text-[#00AEEF]"
+                  >
+                    תאימות רובוטיקה
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article
+              class="group relative rounded-2xl overflow-hidden shadow-sm border border-gray-100"
+            >
+              <div class="relative aspect-[4/3]">
+                <video
+                  src="./assets/machine6.mp4"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  class="absolute inset-0 w-full h-full object-cover"
+                ></video>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-[#0C2243]/80 via-[#0C2243]/30 to-transparent"
+                ></div>
+                <span
+                  class="absolute top-3 left-3 md:left-auto md:right-3 inline-flex items-center rounded-full bg-[#F4B000] text-[#0C2243] text-xs font-semibold px-3 py-1 shadow"
+                  >650T</span
+                >
+                <div
+                  class="absolute bottom-0 right-0 left-0 p-5 text-white text-right"
+                >
+                  <h3 class="text-lg font-bold leading-tight">
+                    מכונת הזרקה 650 טון
+                  </h3>
+                  <p class="text-white/80 text-sm mt-1">
+                    כוח הידוק גבוה — חלקים גדולים ותבניות כבדות
+                  </p>
+                </div>
+              </div>
+              <div class="p-5 text-right">
+                <p class="text-[#6B7280]">
+                  לחלקים גדולים, מגינים, פאנלים ומכלולים הדורשים חלל תבנית רחב.
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-4 text-sm">
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#004080]/10 text-[#004080]"
+                  >
+                    חלל תבנית גדול
+                  </li>
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#009E5A]/10 text-[#009E5A]"
+                  >
+                    חוזק מכני
+                  </li>
+                  <li
+                    class="px-3 py-1 rounded-full bg-[#00AEEF]/10 text-[#00AEEF]"
+                  >
+                    סדרות גדולות
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTION PROCESS -->
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[#0C2243] mb-3">
+              תהליך הייצור שלנו
+            </h2>
+            <p class="text-xl text-[#6B7280] max-w-2xl mx-auto">
+              מקבלת הזמנה ועד משלוח — תהליך מקצועי ושקוף.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-4 gap-8">
+            <!-- Step 1 -->
+            <div class="relative">
+              <div class="flex flex-col items-center text-center">
+                <div
+                  class="w-16 h-16 bg-[#004080] text-white rounded-full grid place-items-center text-2xl font-bold mb-4"
+                >
+                  01
+                </div>
+                <h3 class="text-xl font-bold text-[#0C2243] mb-2">
+                  ייעוץ ותכנון
+                </h3>
+                <p class="text-[#6B7280]">פגישת היכרות וקבלת דרישות</p>
+              </div>
+              <div
+                class="hidden md:block absolute top-8 left-1/2 translate-x-1/2 w-1/2 h-0.5 bg-gray-300"
+              ></div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="relative">
+              <div class="flex flex-col items-center text-center">
+                <div
+                  class="w-16 h-16 bg-[#004080] text-white rounded-full grid place-items-center text-2xl font-bold mb-4"
+                >
+                  02
+                </div>
+                <h3 class="text-xl font-bold text-[#0C2243] mb-2">
+                  עיצוב ופיתוח
+                </h3>
+                <p class="text-[#6B7280]">תכנון התבנית והסימולציות</p>
+              </div>
+              <div
+                class="hidden md:block absolute top-8 left-1/2 translate-x-1/2 w-1/2 h-0.5 bg-gray-300"
+              ></div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="relative">
+              <div class="flex flex-col items-center text-center">
+                <div
+                  class="w-16 h-16 bg-[#004080] text-white rounded-full grid place-items-center text-2xl font-bold mb-4"
+                >
+                  03
+                </div>
+                <h3 class="text-xl font-bold text-[#0C2243] mb-2">
+                  ייצור ובדיקה
+                </h3>
+                <p class="text-[#6B7280]">הפקה ובקרת איכות מלאה</p>
+              </div>
+              <div
+                class="hidden md:block absolute top-8 left-1/2 translate-x-1/2 w-1/2 h-0.5 bg-gray-300"
+              ></div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="relative">
+              <div class="flex flex-col items-center text-center">
+                <div
+                  class="w-16 h-16 bg-[#004080] text-white rounded-full grid place-items-center text-2xl font-bold mb-4"
+                >
+                  04
+                </div>
+                <h3 class="text-xl font-bold text-[#0C2243] mb-2">
+                  אריזה ומשלוח
+                </h3>
+                <p class="text-[#6B7280]">הכנה למשלוח ללקוח</p>
+              </div>
+              <div
+                class="hidden md:block absolute top-8 left-1/2 translate-x-1/2 w-1/2 h-0.5 bg-gray-300"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section
+        class="py-16 bg-gradient-to-br from-[#004080] to-[#0C2243] text-white"
+      >
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
+            מעוניינים בפרויקט מותאם אישית?
+          </h2>
+          <p class="text-lg text-white/90 mb-6">
+            הצוות שלנו ישמח לעזור לכם להגשים את הרעיון שלכם.
+          </p>
+          <a
+            href="./contact.html"
+            class="inline-flex items-center justify-center gap-2 bg-[#F4B000] text-[#0C2243] px-6 py-3 rounded-lg font-bold hover:opacity-90 transition"
+          >
+            צור קשר לקבלת הצעה
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER (reusable) ===== -->
+    <footer
+      class="bg-gradient-to-br from-[#0C2243] to-[#004080] text-white py-12"
+      id="contact"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8">
+          <!-- Company Info -->
+          <div class="md:col-span-1">
+            <div class="flex items-center gap-2 mb-4">
+              <div
+                class="w-20 h-10 rounded-lg flex items-center justify-center"
+              >
+                <a href="./index.html">
+                  <img src="./assets/Full Logo 3.png" alt="Footer logo"
+                /></a>
+              </div>
+            </div>
+            <p class="text-white/80 text-sm">
+              מפעל מוביל לייצור פלסטיק באיכות גבוהה, משרת את התעשייה הישראלית
+              מאז 2019.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="font-bold mb-4">קישורים מהירים</h3>
+            <ul class="space-y-2 text-white/80 text-sm">
+              <li>
+                <a
+                  href="./index.html"
+                  class="hover:text-white transition-colors"
+                  >בית</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./about.html"
+                  class="hover:text-white transition-colors"
+                  >אודות</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./products.html"
+                  class="hover:text-white transition-colors"
+                  >מוצרים</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./contact.html"
+                  class="hover:text-white transition-colors"
+                  >צור קשר</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h3 class="font-bold mb-4">שירותים</h3>
+            <ul class="space-y-2 text-white/80 text-sm">
+              <li>הזרקת פלסטיק</li>
+              <li>תכנון תבניות</li>
+              <li>ייצור מהיר</li>
+              <li>ייעוץ מקצועי</li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h3 class="font-bold mb-4">צור קשר</h3>
+            <ul class="space-y-2 text-white/80 text-sm">
+              <li class="flex items-center gap-2">
+                <i data-lucide="phone" class="w-4 h-4"></i> 04-9807566
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="mail" class="w-4 h-4"></i> rami@rys-plast.com
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4"></i> איזור תעשייה
+                ג'וליס, כביש אלבנזין
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Row -->
+        <div
+          class="border-t border-white/10 mt-10 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-center text-center md:text-right"
+        >
+          <!-- Policy -->
+          <div class="flex justify-center md:justify-start gap-4">
+            <a
+              href="/privacy-policy"
+              class="text-white/70 hover:text-white text-sm transition"
+              >מדיניות פרטיות</a
+            >
+            <span class="text-white/30">|</span>
+            <a
+              href="/terms-of-use"
+              class="text-white/70 hover:text-white text-sm transition"
+              >תנאי שימוש</a
+            >
+          </div>
+
+          <!-- Newsletter -->
+          <div class="text-center md:text-center">
+            <h4 class="text-white font-bold mb-2">הירשמו לניוזלטר שלנו</h4>
+            <p class="text-white/70 text-sm mb-4">
+              קבלו עדכונים על טכנולוגיות חדשות, מוצרים וחדשות מהמפעל
+            </p>
+            <form
+              class="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-md mx-auto"
+            >
+              <input
+                type="email"
+                placeholder="הכניסו את האימייל שלכם"
+                required
+                class="w-full sm:w-auto flex-grow px-4 py-2 rounded-lg text-[#0C2243] placeholder-gray-500 focus:outline-none"
+              />
+              <button
+                type="submit"
+                class="bg-[#F4B000] text-[#0C2243] px-5 py-2 rounded-lg font-semibold hover:opacity-90 transition"
+              >
+                הרשמה
+              </button>
+            </form>
+          </div>
+
+          <!-- Copyright -->
+          <div class="text-white/60 text-sm md:text-left text-center">
+            <p>&copy; 2025 R.Y.S Plastic Factory. כל הזכויות שמורות.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS -->
+    <script>
+      lucide.createIcons();
+      const mobileBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileBtn?.addEventListener("click", () =>
+        mobileMenu.classList.toggle("active")
+      );
+    </script>
+  </body>
+</html>

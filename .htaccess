@@ -1,0 +1,10 @@
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # pretty urls for inner pages
+  RewriteRule ^about/?$ about.html [L,QSA]
+  RewriteRule ^products/?$ products.html [L,QSA]
+  RewriteRule ^contact/?$ contact.html [L,QSA]
+</IfModule>

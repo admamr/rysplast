@@ -9,9 +9,13 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts - Rubik -->
+    <!-- Google Fonts - Rubik - Orbitron -->
     <link
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
       rel="stylesheet"
     />
 
@@ -40,6 +44,16 @@
       }
       .mobile-menu.active {
         display: block;
+      }
+
+      .designer {
+        font-family: "Orbitron", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 800;
+      }
+      .studio-dot {
+        color: #d84040;
+        font-size: 0.7rem;
       }
     </style>
   </head>
@@ -577,7 +591,13 @@
           </div>
 
           <!-- Right: Copyright -->
-          <div class="text-white/60 text-sm md:text-left text-center">
+          <div
+            class="text-white/60 text-sm md:text-left text-center grid grid-rows-2-2 md:gap-0"
+          >
+            <p class="designer">
+              Developed & Designed - FLAMMIN<span class="studio-dot">.</span
+              >STUDIO
+            </p>
             <p>&copy; 2025 R.Y.S Plastic Factory. כל הזכויות שמורות.</p>
           </div>
         </div>
